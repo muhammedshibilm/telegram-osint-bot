@@ -40,10 +40,9 @@ git clone https://github.com/muhammedshibilm/telegram-osint-bot.git
 cd telegram-osint-bot
 ```
 
-2. Copy `.env.example` to `.env` and configure:
+2. create `.env` file and add your configurations:
 ```bash
-cp .env.example .env
-nano .env
+echo "TELEGRAM_BOT_TOKEN=your_telegram_bot_token \n ABUSEIPDB_API_KEY=your_abuseipdb_api_key \n VT_API_KEY=your_virustotal_api_key \n SHODAN_API_KEY=your_shodan_api_key \n ADMIN_USER_IDS=your_admin_user_ids" > .env
 ```
 
 3. Add your Telegram bot token (required):
@@ -51,17 +50,18 @@ nano .env
    - Send `/newbot` and follow instructions
    - Copy token to `.env` file
 
-4. Run with Docker Compose:
+4.  Make the deployment script executable:
 ```bash
-docker-compose up -d
-```
+chmod +x deploy.sh 
+```  
 
-5. Check logs:
+5. Run the deployment script make sure you have docker and docker-compose installed:
 ```bash
-docker-compose logs -f
-```
+./deploy.sh
+````
 
-### Manual Installation
+
+Manual Installation
 
 1. Install dependencies:
 ```bash
@@ -106,51 +106,24 @@ Add them to your `.env` file.
 /compare <ip1> <ip2> - Compare two IPs
 ```
 
-## Docker Commands
+## Docker Commands if uisng docker compose new versoin
 ```bash
 # Start bot
-docker-compose up -d
+docker compose up -d
 
 # Stop bot
-docker-compose down
+docker compose down
 
 # Restart bot
-docker-compose restart
+docker compose restart
 
 # View logs
-docker-compose logs -f
+docker compose logs -f
 
 # Rebuild after changes
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
-## Free Hosting Options
-
-Deploy your bot for free on:
-
-1. **Railway**: https://railway.app
-   - Connect GitHub repo
-   - Add environment variables
-   - Deploy automatically
-
-2. **Render**: https://render.com
-   - Create new Web Service
-   - Connect repo
-   - Add environment variables
-
-3. **Fly.io**: https://fly.io
-```bash
-   flyctl launch
-   flyctl secrets set TELEGRAM_BOT_TOKEN=your_token
-   flyctl deploy
-```
-
-4. **Heroku**: https://heroku.com
-```bash
-   heroku create
-   heroku config:set TELEGRAM_BOT_TOKEN=your_token
-   git push heroku main
-```
 
 ## Security Notes
 
@@ -164,8 +137,8 @@ Deploy your bot for free on:
 
 **Bot not responding:**
 - Check if token is correct
-- Verify bot is running: `docker-compose ps`
-- Check logs: `docker-compose logs`
+- Verify bot is running: `docker compose ps`
+- Check logs: `docker compose logs`
 
 **Commands failing:**
 - Ensure system tools are installed
@@ -235,5 +208,3 @@ logs/
 .DS_Store
 Thumbs.db
 
-# Docker
-docker-compose.override.yml
