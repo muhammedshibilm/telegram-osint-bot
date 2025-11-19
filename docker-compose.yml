@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  osint-bot:
+    build: .
+    container_name: telegram-osint-bot
+    restart: unless-stopped
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - ABUSEIPDB_API_KEY=${ABUSEIPDB_API_KEY}
+      - VT_API_KEY=${VT_API_KEY}
+      - SHODAN_API_KEY=${SHODAN_API_KEY}
+      - ADMIN_USER_IDS=${ADMIN_USER_IDS}
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - bot-network
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    security_opt:
+      - no-new-privileges:true
+
+networks:
+  bot-network:
+    driver: bridge
