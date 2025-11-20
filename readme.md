@@ -1,193 +1,184 @@
 # 🔍 Telegram OSINT Recon Bot
 
-Advanced network reconnaissance and threat intelligence bot for Telegram.
+Advanced network reconnaissance and threat-intelligence bot for Telegram.
 
-## Features
+---
 
-### Network Tools
-- 🌐 WHOIS lookup
-- 📡 Traceroute
-- 🔎 DNS lookup (dig/nslookup)
-- 📶 Ping
-- 🔓 Port scanning (quick & full)
-- 🔄 Reverse DNS lookup
+## 📸 Deployment Manager (Docker Menu)
 
-### IP Intelligence
-- 📍 IP geolocation
-- ⚠️ AbuseIPDB reputation
-- 🛡️ VirusTotal scanning
-- 🔐 TOR/VPN/Proxy detection
-- 🔍 Shodan integration
+You can manage the bot with an interactive deployment panel:
 
-### Security Tools
-- 📧 Email leak detection
-- 🔒 SSL certificate analysis
-- 📋 HTTP headers inspection
-- 🌳 Subdomain enumeration
+![Telegram OSINT Bot Deployment Manager](./banner.png)
 
-### Advanced Features
-- 📊 Comprehensive threat reports
-- ⚖️ IP comparison
-- 📈 Interactive interface
+---
 
-## Quick Start
+## 🚀 Features
 
-### Using Docker Compose (Recommended)
+### **Network Tools**
 
-1. Clone the repository:
+* 🌐 WHOIS lookup
+* 📡 Traceroute
+* 🔎 DNS lookup (dig/nslookup)
+* 📶 Ping
+* 🔓 Port scanning (quick & full)
+* 🔄 Reverse DNS lookup
+
+### **IP Intelligence**
+
+* 📍 IP geolocation
+* ⚠️ AbuseIPDB reputation
+* 🛡️ VirusTotal scanning
+* 🔐 TOR/VPN/Proxy detection
+* 🔍 Shodan integration
+
+### **Security Tools**
+
+* 📧 Email leak detection
+* 🔒 SSL certificate analysis
+* 📋 HTTP headers inspection
+* 🌳 Subdomain enumeration
+
+### **Advanced Features**
+
+* 📊 Detailed threat reports
+* ⚖️ IP comparison
+* 📈 Interactive interface
+
+---
+
+## 🛠️ Quick Start (Docker Compose Recommended)
+
+### **1. Clone the repository**
+
 ```bash
 git clone https://github.com/muhammedshibilm/telegram-osint-bot.git
 cd telegram-osint-bot
 ```
 
-2. create `.env` file and add your configurations:
+### **2. Add environment variables**
+
+Create `.env`:
+
 ```bash
-echo "TELEGRAM_BOT_TOKEN=your_telegram_bot_token \n ABUSEIPDB_API_KEY=your_abuseipdb_api_key \n VT_API_KEY=your_virustotal_api_key \n SHODAN_API_KEY=your_shodan_api_key \n ADMIN_USER_IDS=your_admin_user_ids" > .env
+echo "TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+ABUSEIPDB_API_KEY=your_abuseipdb_api_key
+VT_API_KEY=your_virustotal_api_key
+SHODAN_API_KEY=your_shodan_api_key
+ADMIN_USER_IDS=your_admin_user_ids" > .env
 ```
 
-3. Add your Telegram bot token (required):
-   - Message [@BotFather](https://t.me/botfather)
-   - Send `/newbot` and follow instructions
-   - Copy token to `.env` file
+### **3. Make the deployment script executable**
 
-4.  Make the deployment script executable:
 ```bash
-chmod +x deploy.sh 
-```  
+chmod +x deploy.sh
+```
 
-5. Run the deployment script make sure you have docker and docker-compose installed:
+### **4. Run the deployment manager**
+
 ```bash
 ./deploy.sh
-````
+```
 
+This opens the interactive menu (shown in screenshot).
 
-Manual Installation
+---
 
-1. Install dependencies:
+## 🧭 Manual Installation (Non-Docker)
+
+### Install dependencies:
+
 ```bash
 sudo apt-get install whois traceroute dnsutils masscan
 pip install -r requirements.txt
 ```
 
-2. Configure `.env` file
+### Run the bot:
 
-3. Run the bot:
 ```bash
 python bot.py
 ```
 
-## API Keys (Optional)
+---
 
-Get free API keys to enable additional features:
+## 🧩 Docker Commands (Latest Compose)
 
-- **AbuseIPDB**: https://www.abuseipdb.com/register
-- **VirusTotal**: https://www.virustotal.com/gui/join-us
-- **Shodan**: https://account.shodan.io/register
-
-Add them to your `.env` file.
-
-## Commands
-```
-/start - Welcome message
-/help - List all commands
-/whois <target> - WHOIS lookup
-/traceroute <target> - Trace route
-/dig <domain> - DNS lookup
-/ping <target> - Ping host
-/ipinfo <ip> - IP information
-/portscan <ip> - Quick port scan
-/emailleaks <email> - Check email leaks
-/abuseip <ip> - Abuse reputation
-/virustotal <ip> - VirusTotal scan
-/shodan <ip> - Shodan lookup
-/sslcheck <domain> - SSL certificate info
-/subdomain <domain> - Find subdomains
-/fullreport <ip> - Comprehensive analysis
-/compare <ip1> <ip2> - Compare two IPs
-```
-
-## Docker Commands if uisng docker compose new versoin
 ```bash
-# Start bot
-docker compose up -d
-
-# Stop bot
-docker compose down
-
-# Restart bot
-docker compose restart
-
-# View logs
-docker compose logs -f
-
-# Rebuild after changes
-docker compose up -d --build
+docker compose up -d        # Start bot
+docker compose down         # Stop bot
+docker compose restart      # Restart
+docker compose logs -f      # View logs
+docker compose up -d --build # Rebuild after changes
 ```
 
+---
 
-## Security Notes
+## 🔑 Optional API Keys
 
-⚠️ **Important:**
-- Only use on authorized targets
-- Respect rate limits
-- Keep API keys private
-- Use responsibly
+Get free keys:
 
-## Troubleshooting
+* AbuseIPDB → [https://www.abuseipdb.com/register](https://www.abuseipdb.com/register)
+* VirusTotal → [https://www.virustotal.com/gui/join-us](https://www.virustotal.com/gui/join-us)
+* Shodan → [https://account.shodan.io/register](https://account.shodan.io/register)
 
-**Bot not responding:**
-- Check if token is correct
-- Verify bot is running: `docker compose ps`
-- Check logs: `docker compose logs`
+Add them to `.env`.
 
-**Commands failing:**
-- Ensure system tools are installed
-- Check API keys are valid
-- Verify network connectivity
+---
 
-**Permission errors:**
-- Masscan requires root/CAP_NET_RAW
-- Docker compose includes necessary capabilities
+## 📜 Commands
 
-## License
-
-MIT License - Use at your own risk
-
-## Contributing
-
-Pull requests welcome! Please ensure code follows best practices.
-
-## Support
-
-For issues, open a GitHub issue or contact the maintainer.
+```
+/start
+/help
+/whois <target>
+/traceroute <target>
+/dig <domain>
+/ping <target>
+/ipinfo <ip>
+/portscan <ip>
+/emailleaks <email>
+/abuseip <ip>
+/virustotal <ip>
+/shodan <ip>
+/sslcheck <domain>
+/subdomain <domain>
+/fullreport <ip>
+/compare <ip1> <ip2>
 ```
 
-## 7. **.gitignore**
-```
+---
+
+## 🛡️ Security Notes
+
+* Use only on **authorized targets**
+* Protect API keys
+* Respect rate limits
+* Use responsibly
+
+---
+
+## 🐞 Troubleshooting
+
+**Bot not responding**
+
+* Check token
+* Verify container: `docker compose ps`
+* Logs: `docker compose logs`
+
+**Permission issues**
+
+* Masscan needs root or `CAP_NET_RAW`
+
+---
+
+## 📁 .gitignore
+
+```gitignore
 # Python
 __pycache__/
 *.py[cod]
-*$py.class
-*.so
-.Python
 env/
 venv/
-ENV/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
 *.egg-info/
-.installed.cfg
-*.egg
 
 # Environment
 .env
@@ -200,11 +191,10 @@ logs/
 # IDE
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
 
 # OS
 .DS_Store
 Thumbs.db
+```
 
+---
