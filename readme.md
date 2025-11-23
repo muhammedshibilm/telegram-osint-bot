@@ -4,7 +4,7 @@ Advanced network reconnaissance and threat-intelligence bot for Telegram.
 
 ---
 
-## 📸 Deployment Manager (Docker Menu)
+## Deployment Manager (Docker Menu)
 
 You can manage the bot with an interactive deployment panel:
 
@@ -12,31 +12,31 @@ You can manage the bot with an interactive deployment panel:
 
 ---
 
-## 🚀 Features
+## Features
 
 ### **Network Tools**
 
-* 🌐 WHOIS lookup
-* 📡 Traceroute
-* 🔎 DNS lookup (dig/nslookup)
-* 📶 Ping
-* 🔓 Port scanning (quick & full)
-* 🔄 Reverse DNS lookup
+* WHOIS lookup
+* Traceroute
+* DNS lookup (dig/nslookup)
+* Ping
+* Port scanning (quick & full)
+* Reverse DNS lookup
 
 ### **IP Intelligence**
 
-* 📍 IP geolocation
-* ⚠️ AbuseIPDB reputation
-* 🛡️ VirusTotal scanning
-* 🔐 TOR/VPN/Proxy detection
-* 🔍 Shodan integration
+* IP geolocation
+* AbuseIPDB reputation
+* VirusTotal scanning
+* TOR/VPN/Proxy detection
+* Shodan integration
 
 ### **Security Tools**
 
-* 📧 Email leak detection
-* 🔒 SSL certificate analysis
-* 📋 HTTP headers inspection
-* 🌳 Subdomain enumeration
+* Email leak detection
+* SSL certificate analysis
+* HTTP headers inspection
+* Subdomain enumeration
 
 ### **Advanced Features**
 
@@ -83,7 +83,7 @@ This opens the interactive menu (shown in screenshot).
 
 ---
 
-## 🧭 Manual Installation (Non-Docker)
+##  Manual Installation (Non-Docker)
 
 ### Install dependencies:
 
@@ -147,7 +147,7 @@ Add them to `.env`.
 
 ---
 
-## 🛡️ Security Notes
+## Security Notes
 
 * Use only on **authorized targets**
 * Protect API keys
@@ -156,7 +156,7 @@ Add them to `.env`.
 
 ---
 
-## 🐞 Troubleshooting
+## Troubleshooting
 
 **Bot not responding**
 
@@ -167,34 +167,5 @@ Add them to `.env`.
 **Permission issues**
 
 * Masscan needs root or `CAP_NET_RAW`
-
----
-
-## 📁 .gitignore
-
-```gitignore
-# Python
-__pycache__/
-*.py[cod]
-env/
-venv/
-*.egg-info/
-
-# Environment
-.env
-.env.local
-
-# Logs
-logs/
-*.log
-
-# IDE
-.vscode/
-.idea/
-
-# OS
-.DS_Store
-Thumbs.db
-```
 
 ---
